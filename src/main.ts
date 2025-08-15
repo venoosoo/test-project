@@ -1,6 +1,9 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { provideHttpClient, withJsonpSupport } from '@angular/common/http';
+import { MainComponent } from './app/app.module';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(MainComponent, {
+  providers: [
+    provideHttpClient(withJsonpSupport())
+  ]
+}).catch(err => console.error(err));

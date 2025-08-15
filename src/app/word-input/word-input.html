@@ -1,0 +1,22 @@
+<div class="center">
+  <div class="stats">
+    <h2>Characters: {{ charCount }}</h2>
+    <h2>Words: {{ wordCount }}</h2>
+  </div>
+  <textarea
+    [(ngModel)]="userText"
+    (ngModelChange)="updateTextStats()"
+    cdkTextareaAutosize
+    #autosize="cdkTextareaAutosize"
+    cdkAutosizeMinRows="1"
+    cdkAutosizeMaxRows="15"
+    placeholder="Type here..."
+    (mouseup)="getSelectedText($event)">
+  </textarea>
+
+  <button class="copy-button" (click)="copyText(userText)">Copy Text</button>
+
+  <button matButton="filled" class="button" (click)="onButtonClick()">Get synonyms</button>
+
+  <word-list [searchingWord]="selectedText" [hasSearched]="hasSearched" [words]="api_results" (wordSelected)="ChangeSelectedText($event)"></word-list>
+</div>

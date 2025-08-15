@@ -1,0 +1,36 @@
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 12px;
+}
+
+.word-grid button {
+  background-color: #4f46e5;
+  color: white;
+  font-size: clamp(10px, 2vw, 14px); /* text adjusts automatically */
+  font-weight: 500;
+  border: none;
+  border-radius: 12px;
+  aspect-ratio: 1 / 1; /* keeps buttons square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; /* cuts long text with ... */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.word-grid button:hover {
+  background-color: #4338ca;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.word-grid button:active {
+  background-color: #3730a3;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

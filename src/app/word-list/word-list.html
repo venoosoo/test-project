@@ -1,0 +1,12 @@
+<div class="word-grid-container " *ngIf="hasSearched">
+  <h1>Synonyms for: {{ searchingWord }}</h1>
+  <div class="word-grid" *ngIf="words && words.length > 0; else noWords">
+    <button *ngFor="let w of words" (click)="OnButtonClick(w.word)">
+      {{ w.word }}
+    </button>
+  </div>
+
+  <ng-template #noWords>
+    <p *ngIf="hasSearched && words.length === 0">No synonyms</p>
+  </ng-template>
+</div>
